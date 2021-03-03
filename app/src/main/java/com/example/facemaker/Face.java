@@ -33,6 +33,7 @@ public class Face extends SurfaceView {
     protected void onDraw(Canvas canvas){
 
         canvas.drawCircle(200, 200, 100, color);
+        canvas.drawCircle(300, 200, 50, color);
     };
 
 }
