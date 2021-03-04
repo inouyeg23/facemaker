@@ -31,9 +31,6 @@ public class Face {
     public int greenSkin;
     public int blueSkin;
 
-    public int redCurrent;
-    public int greenCurrent;
-    public int blueCurrent;
 
     //boolean variable to set whether face is random or not
     public boolean randomFace = false;

@@ -109,6 +109,13 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
         face.randomFace = true;
         //re-randomizes the face to get a new random face
         face.randomize();
+        if(radioSkin){
+            setSkinProgress();
+        } else if(radioEyes){
+            setEyesProgress();
+        } else {
+            setHairProgress();
+        }
         //necessary to update the canvas
         faceview.invalidate();
     }

@@ -27,21 +27,12 @@ public class MainActivity extends AppCompatActivity {
         //SeekBar
         SeekBar redseekbar = (SeekBar)findViewById(R.id.redSeekBar);
 
-        redseekbar.setMax(255);
-        redseekbar.setProgress(newfaceview.face.redCurrent);
-        redseekbar.refreshDrawableState();
 
         SeekBar greenseekbar = (SeekBar)findViewById(R.id.greenSeekBar);
 
-        greenseekbar.setMax(255);
-        greenseekbar.setProgress(newfaceview.face.greenCurrent);
-        greenseekbar.refreshDrawableState();
 
         SeekBar blueseekbar = (SeekBar)findViewById(R.id.blueSeekBar);
 
-        blueseekbar.setMax(255);
-        blueseekbar.setProgress(newfaceview.face.blueCurrent);
-        blueseekbar.refreshDrawableState();
 
         //Button
         Button randomFace = (Button)findViewById(R.id.faceButton);
