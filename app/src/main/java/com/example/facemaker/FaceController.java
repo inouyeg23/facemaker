@@ -7,11 +7,10 @@ package com.example.facemaker;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Spinner;
+
 
 public class FaceController implements View.OnClickListener, OnSeekBarChangeListener,
         AdapterView.OnItemSelectedListener, RadioGroup.OnCheckedChangeListener {
@@ -24,7 +23,6 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
     private SeekBar redSeek;
     private SeekBar greenSeek;
     private SeekBar blueSeek;
-    private Spinner hairSpinner;
 
     private boolean radioSkin;
     private boolean radioEyes;
@@ -61,22 +59,19 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
     //listener to listen from seek bar and change colors appropriately
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        //if (radioSkin) {
+        if (radioSkin) {
             switch (seekBar.getId()) {
                 case R.id.redSeekBar:
                     face.redSkin = progress;
-
                     break;
                 case R.id.greenSeekBar:
                     face.greenSkin = progress;
-
                     break;
                 case R.id.blueSeekBar:
                     face.blueSkin = progress;
-
                     break;
             }
-        //}
+        }
         if (radioEyes) {
             switch (seekBar.getId()) {
                 case R.id.redSeekBar:
@@ -94,7 +89,6 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
             switch (seekBar.getId()) {
                 case R.id.redSeekBar:
                     face.redHair = progress;
-
                     break;
                 case R.id.greenSeekBar:
                     face.greenHair = progress;
@@ -104,6 +98,7 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
                     break;
             }
         }
+        //necessary to update the canvas
         faceview.invalidate();
 
     }
@@ -112,48 +107,46 @@ public class FaceController implements View.OnClickListener, OnSeekBarChangeList
     @Override
     public void onClick(View v) {
         face.randomFace = true;
+        //re-randomizes the face to get a new random face
         face.randomize();
+        //necessary to update the canvas
         faceview.invalidate();
     }
 
     //radio group controlling the radio buttons and updating the seekbar to the correct progress
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-
         switch (checkedId) {
             case R.id.skinRadioButton:
-                System.out.println("skin");
-                setSkinProgress();
                 radioSkin = true;
                 radioEyes = false;
                 radioHair = false;
-
+                setSkinProgress();
                 break;
             case R.id.eyesRadioButton:
-                System.out.println("eyes");
-                setEyesProgress();
                 radioSkin = false;
                 radioEyes = true;
                 radioHair = false;
-
+                setEyesProgress();
                 break;
             case R.id.hairRadioButton:
-                System.out.println("hair");
-                setHairProgress();
                 radioSkin = false;
                 radioEyes = false;
                 radioHair = true;
-
+                setHairProgress();
                 break;
-
+            default:
+                break;
         }
 
 
     }
-    //spinner listener to change the haristyle based on selected choice
+    //spinner listener to change the hairstyle based on selected choice
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //sets the hairstyle based on the drop down menu
         face.hairStyle = position;
+        //necessary to update the canvas
         faceview.invalidate();
     }
 
