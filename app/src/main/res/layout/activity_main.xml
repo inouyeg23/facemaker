@@ -40,12 +40,6 @@
                         android:layout_height="match_parent"
                         android:max="255" />
 
-                    <TextView
-                        android:id="@+id/progressRed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -67,11 +61,6 @@
                         android:layout_height="wrap_content"
                         android:max="255" />
 
-                    <TextView
-                        android:id="@+id/progressGreen"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -93,11 +82,6 @@
                         android:layout_height="wrap_content"
                         android:max="255" />
 
-                    <TextView
-                        android:id="@+id/progressBlue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -113,26 +97,41 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
-                <RadioButton
-                    android:id="@+id/hairRadioButton"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Hair" />
+                    android:layout_weight="1">
 
-                <RadioButton
-                    android:id="@+id/eyesRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Eyes" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/skinRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Skin" />
+                        <RadioButton
+                            android:id="@+id/skinRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:text="Skin" />
+
+                        <RadioButton
+                            android:id="@+id/eyesRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Eyes" />
+
+                        <RadioButton
+                            android:id="@+id/hairRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Hair" />
+
+                    </LinearLayout>
+                </RadioGroup>
 
                 <Button
                     android:id="@+id/faceButton"
@@ -149,10 +148,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <SurfaceView
-                android:id="@+id/surfaceView"
+            <com.example.facemaker.FaceSurfaceView
+                android:id="@+id/faceSurfaceView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
         </LinearLayout>
     </LinearLayout>
 
